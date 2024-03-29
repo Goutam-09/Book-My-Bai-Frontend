@@ -1,0 +1,67 @@
+
+<div class="container mt-5 contain">
+    <section class="vh-100">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11 box">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body p-md-3">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
+                                    <form [formGroup]="userLoginForm" (ngSubmit)="userLogin(userLoginForm)" class="mx-1 mx-md-4">
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <label class="form-label">Your Email</label>
+                                                <input type="email" formControlName="userEmail" name="userEmail" class="form-control" />
+                                                @if (userEmail) {
+                                                    <div>
+                                                        @if (userEmail.errors?.['required'] &&(userEmail.touched || userEmail.dirty)) {
+                                                            <small class="form-text text-danger">This Field is reqiured</small>
+                                                        }
+                                                        @if (userEmail.errors?.['pattern']) {
+                                                            <small class="form-text text-danger">Email patten mismatch</small>
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <div class="form-outline flex-fill mb-0">
+                                                <label class="form-label">Password</label>
+                                                <input type="password" formControlName="userPassword" name="userPassword" class="form-control" />
+                                                @if (userPassword) {
+                                                    <div>
+                                                        @if (userPassword.errors?.['required'] &&(userPassword.touched || userPassword.dirty)) {
+                                                            <small class="form-text text-danger">This Field is reqiured</small>
+                                                        }
+                                                        @if (userPassword.errors?.['pattern']) {
+                                                            <small class="form-text text-danger">This field contain atleast one capital one small one special and numric character</small>
+                                                        }
+                                                        @if ((userPassword.errors?.['minlength'] || userPassword.errors?.['maxlength']) && !userPassword.errors?.['pattern']) {
+                                                            <small class="form-text text-danger">Password length should be minimum 6 and maximum 15</small>
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <button type="submit" [disabled]="userLoginForm.invalid" class="btn btn-outline-primary btn-lg">Login</button>
+                                        </div>
+                                        <div class="justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <label class="marginlink" [routerLink]="'/registerForm'" routerLinkActive="router-link-active" >New Account/Register</label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                    <video loading="lazy" disablePictureInPicture muted="muted" src="../../../assets/vedios/loginvedio.mp4"
+                                        type="video/mp4" autoplay="autoplay" loop="loop" class="loginvid desk"></video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

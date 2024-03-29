@@ -1,0 +1,106 @@
+<main id="main" class="main">
+  <div class="pagetitle">
+    <h1>Service Form</h1>
+    <div class="container box py-5">
+
+
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class="bg-white rounded-lg shadow-sm p-5">
+            <div class="tab-content">
+              <div id="nav-tab-card" class="tab-pane fade show active">
+                <form [formGroup]="serviceForm" (ngSubmit)="serviceFormData(serviceForm)">
+                  <div class="form-group">
+                    <label for="name">Service Name <span class="text-danger">*</span></label>
+                    <input type="text" formControlName="serviceName" name="serviceName"
+                      placeholder="ex. Cleaning , House-Keeper" class="form-control mt-2">
+                    @if (serviceName) {
+                    <div>
+                      @if (serviceName.errors?.['required'] && (serviceName.touched || serviceName.dirty)) {
+                      <small class="form-text text-danger">This field is required</small>
+                      }
+                      @if (serviceName.errors?.['pattern']) {
+                      <small class="form-text text-danger">This field contain only alphabets and hypen(-) allow </small>
+                      }
+                    </div>
+                    }
+                  </div>
+                  <div class="form-group mt-3">
+                    <label for="rate">Service Rate <span class="text-danger">* (In Rs/hr)</span></label>
+                    <div class="form-group">
+                      <input type="number" formControlName="serviceRate" name="serviceRate" placeholder="ex. 500 Rs"
+                        class="form-control mt-2">
+                      @if (serviceRate) {
+                      <div>
+                        @if (serviceRate.errors?.['required'] && (serviceRate.touched || serviceRate.dirty)) {
+                        <small class="form-text text-danger">This field is required</small>
+                        }
+                      </div>
+                      }
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <div class="form-group mt-3">
+                        <label>Service Thumbnail <span class="text-danger">*</span></label>
+                        <div class="form-group">
+                          <input type="file" (change)="onFileSelected($event)" formControlName="serviceImage"
+                            name="serviceImage" class="form-control mt-2 text-success">
+                          @if (serviceImage) {
+                          <div>
+                            @if (serviceImage.errors?.['required'] && (serviceImage.touched || serviceImage.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                            }
+                          </div>
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group mt-3">
+                    <div formArrayName="serviceShiftsArray">
+                      <label>Service Shift <span class="text-danger">*</span></label>
+                      @for(category of serviceShiftsArray.controls; track $index) {
+                      <div class="mt-2" [formGroupName]="$index">
+                        <input formControlName="serviceShift" placeholder="Enter shift">
+                        <!-- Add more fields here as needed -->
+                        <button class="btn" type="button" (click)="removeServiceShift($index)"><img
+                            src="../../../../assets/images/removeicon.png" width="25px"></button>
+                      </div>
+                      }
+                    </div>
+                    <div>
+                    </div>
+                    <button class="btn mt-2" type="button" (click)="addServiceShift()"><img
+                        src="../../../../assets/images/addicon.png" width="23px">Add</button>
+                  </div>
+                  <div class="form-group mt-3">
+                    <div formArrayName="serviceCategoryArray">
+                      <label>Service Category <span class="text-danger">*</span></label>
+                      @for(shift of serviceCategoryArray.controls; track $index) {
+                      <div class="mt-2" [formGroupName]="$index">
+                        <input formControlName="serviceCategory" placeholder="Enter Categories">
+                        <!-- Add more fields here as needed -->
+                        <button class="btn" type="button" (click)="removeServiceCategory($index)"><img
+                            src="../../../../assets/images/removeicon.png" width="25px"></button>
+                      </div>
+                      }
+                    </div>
+                    <div>
+                    </div>
+                    <button class="btn mt-2" type="button" (click)="addServiceCategory()"><img
+                        src="../../../../assets/images/addicon.png" width="23px">Add</button>
+                  </div>
+                  <button type="submit" [disabled]="serviceForm.invalid"
+                    class="btn btn-primary btn-block rounded-pill shadow-sm mt-4"> Create </button>
+                </form>
+              </div>
+            </div>
+            <!-- End -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- End Page Title -->
+
+</main>

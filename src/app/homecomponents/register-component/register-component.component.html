@@ -1,0 +1,130 @@
+<div class="container mt-5 contain1">
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                        <div class="card-body p-4 p-md-5">
+                            <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-1">Sign up</p>
+                            <form [formGroup]="userRegisterForm" (ngSubmit)="userRegistration(userRegisterForm)">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Your Name<span class="required text-danger">*</span></label>
+                                            <input type="text" id="yourName" formControlName="userName" name="userName" class="form-control form-control-lg" />
+                                            @if (userName) {
+                                                <div>
+                                                    @if (userName.errors?.['required'] && (userName.touched||userName.dirty)) {
+                                                        <small class="form-text text-danger">This field is required</small>
+                                                    } 
+                                                    @if (userName.errors?.['pattern']) {
+                                                        <small class="form-text text-danger">This field contain only alphabet</small>
+                                                    }
+                                                    @if ((userName.errors?.['minlength'] || userName.errors?.['maxlength'])&& !userName.errors?.['pattern']) {
+                                                        <small class="form-text text-danger">This field contain atleast 3 characters and max 15 characters</small>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Mobile Number<span class="required text-danger">*</span></label>
+                                            <input type="text" formControlName="userMobile" name="userMobile" id="mobileNumber" class="form-control form-control-lg" />
+                                            @if (userMobile) {
+                                                <div>
+                                                    @if (userMobile.errors?.['required'] && (userMobile.touched||userMobile.dirty)) {
+                                                        <small class="form-text text-danger">This field is required</small>
+                                                    } 
+                                                    @if (userMobile.errors?.['pattern']) {
+                                                        <small class="form-text text-danger">This field contain only numric</small>
+                                                    }
+                                                    @if ((userMobile.errors?.['minlength'] || userMobile.errors?.['maxlength'])&& !userMobile.errors?.['pattern']) {
+                                                        <small class="form-text text-danger">This field contain atleast 10 numric and max 12 with country code</small>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                                        <div class="form-outline datepicker w-100">
+                                            <label class="form-label">Your Email<span class="required text-danger">*</span></label>
+                                            <input type="email" formControlName="userEmail" name="userEmail" class="form-control form-control-lg" id="email" />
+                                            @if (userEmail) {
+                                                <div>
+                                                    @if (userEmail.errors?.['required'] && (userEmail.touched||userEmail.dirty)) {
+                                                        <small class="form-text text-danger">This field is required</small>
+                                                    } 
+                                                    @if (userEmail.errors?.['pattern']) {
+                                                        <small class="form-text text-danger">Email patten mismatch</small>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label">Password<span class="required text-danger">*</span></label>
+                                            <input type="password" id="password" formControlName="userPassword" name="userPassword" class="form-control form-control-lg" />
+                                            @if (userPassword) {
+                                                <div>
+                                                    @if (userPassword.errors?.['required'] && (userPassword.touched||userPassword.dirty)) {
+                                                        <small class="form-text text-danger">This field is required</small>
+                                                    } 
+                                                    @if (userPassword.errors?.['pattern']) {
+                                                        <small class="form-text text-danger">This field contain atleast one capital one small one special and numric character</small>
+                                                    }
+                                                    @if ((userPassword.errors?.['minlength'] || userPassword.errors?.['maxlength']) && !userPassword.errors?.['pattern']) {
+                                                        <small class="form-text text-danger">Password length should be minimum 6 and maximum 15</small>
+                                                    }
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 pb-2">
+                                        <div class="form-outline">
+                                            <h6 class="mb-2 pb-1">Gender: </h6>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" formControlName="userGender" name="userGender" type="radio" 
+                                                id="femaleGender" value="Female" checked />
+                                            <label class="form-check-label" for="femaleGender">Female</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" formControlName="userGender" name="userGender" type="radio" 
+                                                id="maleGender" value="Male" />
+                                            <label class="form-check-label" for="maleGender">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" formControlName="userGender" name="userGender" type="radio" 
+                                                id="otherGender" value="Other" />
+                                            <label class="form-check-label" for="otherGender">Other</label>
+                                        </div>
+                                        @if (userGender) {
+                                            <div>
+                                                @if (userGender.errors?.['required'] && (userGender.touched||userGender.dirty)) {
+                                                    <small class="form-text text-danger">This field is required</small>
+                                                } 
+                                            </div>
+                                        }
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-outline">
+                                        <button type="submit" [disabled]="userRegisterForm.invalid"  class="btn btn-outline-primary btn-lg">Register</button>
+                                    </div>
+                                    <div class="form-outline">
+                                        <label class="marginlinkreg" [routerLink]="'/loginForm'" routerLinkActive="router-link-active" >Already Exist/Login</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

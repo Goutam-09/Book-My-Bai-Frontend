@@ -1,0 +1,27 @@
+.box{
+    margin-top: -10%;
+    width: 65%;
+}
+.contain{
+    margin-bottom: -10%;
+}
+.contain1{
+    margin-bottom: -2%;
+}
+.video-js .vjs-control-bar {
+    display: none;
+  }
+.marginlink{
+    margin-left: 13%;
+    color: rgb(45, 45, 185);
+}
+.marginlinkreg{
+    margin-left: 36%;
+    color: rgb(45, 45, 185);
+}
+.marginlink:hover{
+    color: blue;
+}
+.marginlinkreg:hover{
+    color: blue;
+}

@@ -1,0 +1,360 @@
+<main id="main" class="main boxcontainer">
+    <div class="pagetitle">
+      <h3>Profile</h3>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active"><a [routerLink]="'/user-dashboard'">Dashboard</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-4">
+  
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+  
+              <img src="assets/img/profile-img.jpg" alt="profile" class="rounded-circle">
+              <h2>dfd</h2>
+              <h3>fdvf</h3>
+              <div class="social-links mt-2">
+                <a class="twitter"><i class="bi bi-twitter"></i></a>
+                <a class="facebook"><i class="bi bi-facebook"></i></a>
+                <a class="instagram"><i class="bi bi-instagram"></i></a>
+                <a class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="col-xl-8">
+  
+          <div class="card">
+            <div class="card-body pt-3">
+              <!-- Bordered Tabs -->
+              <ul class="nav nav-tabs nav-tabs-bordered">
+  
+                <li class="nav-item">
+                  <button class="nav-link active" data-bs-toggle="tab"
+                    data-bs-target="#profile-overview">Overview</button>
+                </li>
+  
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Update Profile</button>
+                </li>
+  
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Update Address</button>
+                </li>
+  
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                </li>
+  
+              </ul>
+              <div class="tab-content pt-2">
+  
+                <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                    <br>
+  
+                  <h5 class="card-title">Profile Details</h5>
+  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                    <div class="col-lg-9 col-md-8">dcvsdf</div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                    <div class="col-lg-9 col-md-8">dsfds</div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Email</div>
+                    <div class="col-lg-9 col-md-8">cassd</div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Gender</div>
+                    <div class="col-lg-9 col-md-8">sefs</div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Country</div>
+                    <div class="col-lg-9 col-md-8">dsf</div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Address</div>
+                    <div class="col-lg-9 col-md-8">fdd</div>
+                  </div>
+                </div>
+  
+                <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+  
+                  <!-- Profile Edit Form -->
+                  <form>
+                    <div class="row mb-3">
+                      <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                      <div class="col-md-8 col-lg-9">
+                        <img src="assets/img/profile-img.jpg" alt="Profile">
+                        <div class="pt-2">
+                          <label for="profile-image-upload" class="btn btn-primary btn-sm"
+                            title="Upload new profile image">
+                            <i class="bi bi-upload text-white"></i>
+                          </label>
+                          <input type="file" id="profile-image-upload" style="display: none;">
+  
+                          <a style="margin-left: 2px;" href="#" class="btn btn-danger btn-sm"
+                            title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input formControlName="userName" name="userName" type="text" class="form-control" id="fullName">
+                        <!-- @if (userName) {
+                        <div>
+                          @if (userName.errors?.['required'] && (userName.touched||userName.dirty)) {
+                          <small class="form-text text-danger">This field is required</small>
+                          }
+                          @if (userName.errors?.['pattern']) {
+                          <small class="form-text text-danger">This field contain only alphabet</small>
+                          }
+                          @if ((userName.errors?.['minlength'] || userName.errors?.['maxlength'])&&
+                          !userName.errors?.['pattern']) {
+                          <small class="form-text text-danger">This field contain atleast 3 characters and max 15
+                            characters</small>
+                          }
+                        </div>
+                        } -->
+                      </div>
+                    </div>
+  
+                    <div class="row mb-3">
+                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input type="text" formControlName="userMobile" name="userMobile"
+                          class="form-control disableCursor" id="Phone">
+                      </div>
+                    </div>
+  
+                    <div class="row mb-3">
+                      <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input type="email" formControlName="userEmail" name="userEmail"
+                          class="form-control disableCursor" id="Email">
+                      </div>
+                    </div>
+  
+                    <div class="row mb-3">
+                      <div class="col-md-6 mb-4 pb-2">
+                        <label for="Email" class="col-md-4 col-lg-3 col-form-label">Gender</label>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" formControlName="userGender" name="userGender" type="radio"
+                            id="maleGender" value="Male" />
+                          <label class="form-check-label" for="maleGender">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" formControlName="userGender" name="userGender" type="radio"
+                            id="femaleGender" value="Female" />
+                          <label class="form-check-label" for="femaleGender">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" formControlName="userGender" name="userGender" type="radio"
+                            id="otherGender" value="Other" />
+                          <label class="form-check-label" for="otherGender">Other</label>
+                          <!-- @if (userGender) {
+                          <div>
+                            @if (userGender.errors?.['required'] && (userGender.touched||userGender.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                            }
+                          </div>
+                          } -->
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="form-outline">
+                      <button type="submit"  class="btn btn-primary">Save
+                        Changes</button>
+                    </div>
+                  </form><!-- End Profile Edit Form -->
+  
+                </div>
+  
+                <div class="tab-pane fade pt-3" id="profile-settings">
+  
+                  <!-- Address Form -->
+  
+                  <form >
+                    <label class="d-block mb-4">
+                      <span class="form-label d-block">Country</span>
+                      <input  formControlName="country" name="country" type="text" class="form-control" />
+                      <!-- @if (country) {
+                        <div>
+                          @if (country.errors?.['required'] && (country.touched ||country.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                          }
+                          @if (country.errors?.['pattern']) {
+                            <small class="form-text text-danger">This field consist alphabet only</small>
+                          }
+                        </div>
+                      } -->
+                    </label>
+  
+                    <label class="d-block mb-4">
+                      <span class="form-label d-block">State/Province</span>
+                      <input formControlName="state" name="state" type="text" class="form-control" />
+                      <!-- @if (state) {
+                        <div>
+                          @if (state.errors?.['required'] && (state.touched ||state.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                          }
+                          @if (state.errors?.['pattern']) {
+                            <small class="form-text text-danger">This field consist alphabet only</small>
+                          }
+                        </div>
+                      } -->
+                    </label>
+  
+                    <label class="d-block mb-4">
+                      <span class="form-label d-block">City</span>
+                      <input formControlName="city" name="city" type="text" class="form-control" />
+                    <!-- @if (city) {
+                        <div>
+                          @if (city.errors?.['required'] && (city.touched ||city.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                          }
+                          @if (city.errors?.['pattern']) {
+                            <small class="form-text text-danger">This field consist alphabet only</small>
+                          }
+                        </div>
+                      } -->
+                    </label>
+  
+                    <label class="d-block mb-4">
+                      <span class="form-label d-block">Street</span>
+                      <input formControlName="street" name="street" type="text" class="form-control" />
+                      <!-- @if (street) {
+                        <div>
+                          @if (street.errors?.['required'] && (street.touched ||street.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                          }
+                          @if (street.errors?.['pattern']) {
+                            <small class="form-text text-danger">This field consist alphabet and numric and '.' only</small>
+                          }
+                        </div>
+                      } -->
+                    </label>
+  
+                    <label class="d-block mb-4">
+                      <span class="form-label d-block">Zip/Postal code</span>
+                      <input formControlName="zipCode" name="zipCode" type="text" class="form-control" />
+                      <!-- @if (zipCode) {
+                        <div>
+                          @if (zipCode.errors?.['required'] && (zipCode.touched ||zipCode.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                          }
+                          @if (zipCode.errors?.['pattern']) {
+                            <small class="form-text text-danger">This field consist alphabet only</small>
+                          }
+                        </div>
+                      } -->
+                    </label>
+  
+                    <div class="mb-3">
+                      <button type="submit" class="btn btn-primary px-3 rounded-3">
+                        Save
+                      </button>
+                    </div>
+                  </form>
+  
+                  <!-- </form>End Profile Edit Form -->
+  
+                </div>
+  
+                <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <!-- Change Password Form -->
+                  <form>
+                    <div class="row mb-3">
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input formControlName="currentPassword" name="currentPassword" type="password" class="form-control" id="currentPassword">
+                      <!-- @if (currentPassword) {
+                        <div>
+                          @if (currentPassword.errors?.['required'] && (currentPassword.touched || currentPassword.dirty)) {
+                            <small class="form-text text-danger">This field is required</small>
+                          }
+                          @if (currentPassword.errors?.['pattern']) {
+                            <small class="form-text text-danger">This field contain atleast one capital one small one special and numric character</small>
+                        }
+                        @if ((currentPassword.errors?.['minlength'] || currentPassword.errors?.['maxlength']) && !currentPassword.errors?.['pattern']) {
+                            <small class="form-text text-danger">Password length should be minimum 6 and maximum 15</small>
+                        }
+                        </div>
+                      } -->
+                      </div>
+                    </div>
+  
+                    <div class="row mb-3">
+                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input formControlName="newPassword" type="password" class="form-control" id="newPassword">
+                        <!-- @if (newPassword) {
+                          <div>
+                            @if (newPassword.errors?.['required'] && (newPassword.touched || newPassword.dirty)) {
+                              <small class="form-text text-danger">This field is required</small>
+                            }
+                            @if (newPassword.errors?.['pattern']) {
+                              <small class="form-text text-danger">This field contain atleast one capital one small one special and numric character</small>
+                          }
+                          @if ((newPassword.errors?.['minlength'] || newPassword.errors?.['maxlength']) && !newPassword.errors?.['pattern']) {
+                              <small class="form-text text-danger">Password length should be minimum 6 and maximum 15</small>
+                          }
+                          </div>
+                        } -->
+                      </div>
+                    </div>
+  
+                    <div class="row mb-3">
+                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input formControlName="renewpassword" name="renewpassword" type="password" class="form-control" id="renewPassword">
+                        <!-- @if (renewpassword) {
+                          <div>
+                            @if (renewpassword.errors?.['required'] && (renewpassword.touched || renewpassword.dirty)) {
+                              <small class="form-text text-danger">This field is required</small>
+                            }
+                            @if (renewpassword.errors?.['pattern']) {
+                              <small class="form-text text-danger">This field contain atleast one capital one small one special and numric character</small>
+                          }
+                          @if ((renewpassword.errors?.['minlength'] || renewpassword.errors?.['maxlength']) && !renewpassword.errors?.['pattern']) {
+                              <small class="form-text text-danger">Password length should be minimum 6 and maximum 15</small>
+                          }
+                          </div>
+                        } -->
+                      </div>
+                      <!-- <small class="form-text text-danger text-center">{{message}}</small> -->
+                    </div>
+  
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                  </form><!-- End Change Password Form -->
+  
+                </div>
+  
+              </div><!-- End Bordered Tabs -->
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+  
+  </main><!-- End #main -->
